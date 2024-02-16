@@ -14,19 +14,25 @@ common warnings
 
 executable programming-5
     import:           warnings
-    main-is:          Hanoi.hs
+    main-is:          Main.hs
     other-modules:
         CreditCardValidator
+        Hanoi
         QuickSort
-
     build-depends:    base ^>=4.17.1.0
     hs-source-dirs:   src
     default-language: GHC2021
 
 Test-Suite test
-    type: exitcode-stdio-1.0
-    ghc-options: -Wall
-    hs-source-dirs: test
-    main-is:    Tests.hs
-    build-depends: base, HUnit
-    default-language: Haskell2010
+    type:               exitcode-stdio-1.0
+    ghc-options:        -Wall
+    hs-source-dirs:
+        test
+        src
+    other-modules:
+        CreditCardValidator
+        Hanoi
+        QuickSort
+    main-is:            Tests.hs
+    build-depends:      base, HUnit
+    default-language:   GHC2021
