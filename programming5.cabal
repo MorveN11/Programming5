@@ -20,5 +20,13 @@ executable programming-5
         QuickSort
 
     build-depends:    base ^>=4.17.1.0
-    hs-source-dirs:   app
+    hs-source-dirs:   src
     default-language: GHC2021
+
+Test-Suite test
+    type: exitcode-stdio-1.0
+    ghc-options: -Wall
+    hs-source-dirs: test
+    main-is:    Tests.hs
+    build-depends: base, HUnit
+    default-language: Haskell2010
