@@ -1,7 +1,3 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-
-{-# HLINT ignore "Use foldr" #-}
-
 module CreditCardValidator (doubleEveryOther, toDigits, sumArray, sumDigits, validate) where
 
 toDigits :: Int -> [Int]

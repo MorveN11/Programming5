@@ -29,7 +29,7 @@ To run the code of the Hanoi Algorithm, you need to run the following command:
 cabal run
 ```
 
-To run the tests of the Hanoi Algorithm, you need to run the following command:
+To run the tests of the Hanoi Algorithm and the others modules tests, you need to run the following command:
 
 ```bash
 cabal test
