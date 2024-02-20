@@ -2,7 +2,7 @@
 
 {-# HLINT ignore "Use foldr" #-}
 
-module CreditCardValidator where
+module CreditCardValidator (doubleEveryOther, toDigits, sumArray, sumDigits, validate) where
 
 toDigits :: Int -> [Int]
 toDigits n
@@ -16,14 +16,21 @@ toDigitsRev n
   | n < 10 = [n]
   | otherwise = mod n 10 : toDigitsRev (div n 10)
 
-doubleEveryOther :: [Int] -> [Int]
-doubleEveryOther [] = []
-doubleEveryOther [x] = [x]
-doubleEveryOther (x : y : zs) = x : y * 2 : doubleEveryOther zs
+doubleEveryOther :: Either Int [Int] -> [Int]
+doubleEveryOther (Left x) = doubleEveryOther (Right (toDigitsRev x))
+doubleEveryOther (Right []) = []
+doubleEveryOther (Right [x]) = [x]
+doubleEveryOther (Right (x : y : xs)) = x : y * 2 : doubleEveryOther (Right xs)
+
+sumArray :: [Int] -> Int
+sumArray [] = 0
+sumArray [x] = x
+sumArray (x : xs) = x + sumArray xs
 
 sumDigits :: [Int] -> Int
 sumDigits [] = 0
-sumDigits (x : xs) = sum (toDigits x) + sumDigits xs
+sumDigits [x] = x
+sumDigits (x : xs) = sumArray (toDigits x) + sumDigits xs
 
-validate :: Int -> Bool
-validate n = mod (sumDigits (doubleEveryOther (toDigitsRev n))) 10 == 0
+validate :: Either Int [Int] -> Bool
+validate n = mod (sumDigits (doubleEveryOther n)) 10 == 0
