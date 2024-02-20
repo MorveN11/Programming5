@@ -1,5 +1,10 @@
+import Hanoi (hanoi)
 import Test.HUnit
-import Hanoi(hanoi)
+  ( Counts,
+    Test (TestCase, TestList),
+    assertEqual,
+    runTestTT,
+  )
 
 test1 :: Test
 test1 = TestCase (assertEqual "Test Hanoi of 1 Disc" (hanoi 1 "src" "tmp" "dst") [("src", "dst")])
@@ -14,11 +19,10 @@ test4 :: Test
 test4 = TestCase (assertEqual "Test Hanoi of 4 Discs" (hanoi 4 "src" "tmp" "dst") [("src", "tmp"), ("src", "dst"), ("tmp", "dst"), ("src", "tmp"), ("dst", "src"), ("dst", "tmp"), ("src", "tmp"), ("src", "dst"), ("tmp", "dst"), ("tmp", "src"), ("dst", "src"), ("tmp", "dst"), ("src", "tmp"), ("src", "dst"), ("tmp", "dst")])
 
 test5 :: Test
-test5 = TestCase (assertEqual "Test Hanoi of 5 Discs" (hanoi 5 "src" "tmp" "dst") [("src","tmp"),("src","dst"),("tmp","dst"),("src","tmp"),("dst","src"),("dst","tmp"),("src","tmp"),("src","dst"),("tmp","dst"),("tmp","src"),("dst","src"),("tmp","dst"),("src","tmp"),("src","dst"),("tmp","dst"),("src","tmp"),("dst","src"),("dst","tmp"),("src","tmp"),("dst","src"),("tmp","dst"),("tmp","src"),("dst","src"),("dst","tmp"),("src","tmp"),("src","dst"),("tmp","dst"),("src","tmp"),("dst","src"),("dst","tmp"),("src","tmp")])
+test5 = TestCase (assertEqual "Test Hanoi of 5 Discs" (hanoi 5 "src" "tmp" "dst") [("src", "dst"), ("src", "tmp"), ("dst", "tmp"), ("src", "dst"), ("tmp", "src"), ("tmp", "dst"), ("src", "dst"), ("src", "tmp"), ("dst", "tmp"), ("dst", "src"), ("tmp", "src"), ("dst", "tmp"), ("src", "dst"), ("src", "tmp"), ("dst", "tmp"), ("src", "dst"), ("tmp", "src"), ("tmp", "dst"), ("src", "dst"), ("tmp", "src"), ("dst", "tmp"), ("dst", "src"), ("tmp", "src"), ("tmp", "dst"), ("src", "dst"), ("src", "tmp"), ("dst", "tmp"), ("src", "dst"), ("tmp", "src"), ("tmp", "dst"), ("src", "dst")])
 
-tests :: Test
-tests = TestList [TestLabel "Test 1" test1, TestLabel "Test 2" test2, TestLabel "Test 4" test3, TestLabel "Test 4" test4, TestLabel "Test 5" test5]
+testSuite :: Test
+testSuite = TestList [test1, test2, test3, test4, test5]
 
 main :: IO Counts
-main = do
-  runTestTT tests
+main = runTestTT testSuite
