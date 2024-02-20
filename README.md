@@ -20,7 +20,7 @@
 To build this project you need to run the following command:
 
 ```bash
-cabal clean && cabal configure && cabal build
+cabal clean && cabal configure --enable-tests && cabal build
 ```
 
 To run the code of the Hanoi Algorithm, you need to run the following command:

@@ -38,11 +38,12 @@ Test-Suite test
     import:             warnings
     hs-source-dirs:
         test
-    main-is:            Tests.hs
+    main-is:            Test.hs
     build-depends:
         programming5,
         base ^>=4.17.1.0,
-        HUnit
+        tasty,
+        tasty-hunit
     default-language:   GHC2021
     type:               exitcode-stdio-1.0
     ghc-options:        -Wall
