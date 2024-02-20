@@ -1,0 +1,49 @@
+cabal-version:      3.0
+name:               programming5
+version:            0.1.0.0
+license:            MIT
+license-file:       LICENSE
+author:             Manuel Morales
+maintainer:         morales.patty.jose@gmail.com
+category:           Math
+build-type:         Simple
+extra-doc-files:    README.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    hs-source-dirs:   
+        library
+    exposed-modules:
+        Hanoi
+        CreditCardValidator
+        QuickSort
+    build-depends:    
+        base ^>=4.17.1.0
+    default-language: GHC2021
+
+executable programming5
+    import:             warnings
+    hs-source-dirs:     
+        src
+    main-is:            Main.hs
+    build-depends:
+        programming5,
+        base ^>=4.17.1.0
+    default-language:   GHC2021
+
+Test-Suite test
+    import:             warnings
+    hs-source-dirs:
+        test
+    main-is:            Tests.hs
+    build-depends:
+        programming5,
+        base ^>=4.17.1.0,
+        HUnit
+    default-language:   GHC2021
+    type:               exitcode-stdio-1.0
+    ghc-options:        -Wall
+
