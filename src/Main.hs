@@ -1,4 +1,4 @@
-module Main where
+module Main (main) where
 
 import Hanoi (hanoi, printMoves)
 
@@ -15,9 +15,6 @@ main = do
   putStrLn "Please enter the destination rod"
   dst <- getLine
   putStrLn ""
-  if null disks
-    then error "Please enter the number of disks and the names of the rods"
-    else do
-      putStrLn (printMoves (hanoi (read disks) src tmp dst))
-      putStrLn "----------------------------------------"
-      putStrLn "For see the tests, please run the tests with 'cabal test' command."
+  putStrLn (printMoves (hanoi disks src tmp dst))
+  putStrLn "----------------------------------------"
+  putStrLn "For see the tests, please run the tests with 'stack test' command."

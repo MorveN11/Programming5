@@ -9,6 +9,12 @@
 - **Assignment 2**: Credit Card Validator
 - **Assignment 3**: Hanoi
 
+## Versions
+
+- **Cabal**: 3.0
+- **Stack**: lts-18.20
+- **GHC**: 8.10.7
+
 ## Instructions
 
 > [!NOTE]
@@ -19,18 +25,18 @@
 
 To build this project you need to run the following command:
 
-```bash
-cabal clean && cabal configure --enable-tests && cabal build
+``bash
+stack clean && stack build
 ```
 
-To run the code of the Hanoi Algorithm, you need to run the following command:
+To execute the Main of the Hanoi Algorithm, you need to run the following command:
 
 ```bash
-cabal run
+stack run
 ```
 
 To run the tests of the Hanoi Algorithm and the others modules tests, you need to run the following command:
 
 ```bash
-cabal test
+stack test
 ```

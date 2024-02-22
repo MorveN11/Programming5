@@ -1,5 +1,7 @@
 resolver: lts-18.20
 
+compiler: ghc-8.10.7
+
 packages:
 - .
 

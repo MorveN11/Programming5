@@ -1,4 +1,4 @@
-module Hanoi (hanoi, printMoves, NumberDisks, Rod, Move) where
+module Hanoi (hanoi, hanoiAlgorithm, printMoves) where
 
 -- Type NumberDisks represents the number of discs
 type NumberDisks = Int
@@ -10,13 +10,14 @@ type Rod = String
 type Move = (Rod, Rod)
 
 -- hanoi n a b c = verify if the number of disks is valid and call the hanoiAlgorithm function
-hanoi :: NumberDisks -> Rod -> Rod -> Rod -> [Move]
+hanoi :: String -> Rod -> Rod -> Rod -> [Move]
 hanoi n a b c
-  | n < 0 = error "Number of disks must be greater than or equal to 0"
-  | n > 7 = error "Number of disks must be less than or equal to 7"
+  | n == "" = error "Number of disks must be specified"
+  | read n < (0 :: Integer) = error "Number of disks must be greater than or equal to 0"
+  | read n > (7 :: Integer) = error "Number of disks must be less than or equal to 7"
   | a == b || a == c || b == c = error "Rods must be different"
   | a == "" || b == "" || c == "" = error "Rods must be named"
-  | otherwise = hanoiAlgorithm n a b c
+  | otherwise = hanoiAlgorithm (read n) a b c
 
 -- hanoiAlgorithm n a b c = move n discs from a to c using b as temporary storage
 hanoiAlgorithm :: NumberDisks -> Rod -> Rod -> Rod -> [Move]

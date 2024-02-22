@@ -1,4 +1,4 @@
-module QuickSort (lowerThanPivot, greaterThanPivot, quickSort) where
+module QuickSort (quickSort) where
 
 lowerThanPivot :: (Ord a) => a -> [a] -> [a]
 lowerThanPivot _pivot [] = []
