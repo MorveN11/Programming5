@@ -1,50 +1,51 @@
-cabal-version:      3.0
-name:               programming5
-version:            0.1.0.0
-license:            MIT
-license-file:       LICENSE
-author:             Manuel Morales
-maintainer:         morales.patty.jose@gmail.com
-category:           Math
-build-type:         Simple
-extra-doc-files:    README.md
+cabal-version:          3.0
+name:                   programming5
+version:                0.1.0.0
+license:                MIT
+license-file:           LICENSE
+author:                 Manuel Morales
+maintainer:             morales.patty.jose@gmail.com
+category:               Math
+build-type:             Simple
+extra-doc-files:        README.md
 
 common warnings
-    ghc-options: -Wall
+    ghc-options:        -Wall
 
 library
-    import:           warnings
-    hs-source-dirs:   
-        library
-    exposed-modules:
-        Hanoi
-        CreditCardValidator
-        QuickSort
-    build-depends:    
-        base ^>=4.17.1.0
-    default-language: GHC2021
+    import:             warnings
+    hs-source-dirs:     library
+    exposed-modules:    Hanoi
+                        CreditCardValidator
+                        ManuelMoralesCreditCardValidatorClass
+                        QuickSort
+    build-depends:      base
+    default-language:   Haskell2010
 
 executable programming5
     import:             warnings
-    hs-source-dirs:     
-        src
+    hs-source-dirs:     src
     main-is:            Main.hs
-    build-depends:
-        programming5,
-        base ^>=4.17.1.0
-    default-language:   GHC2021
+    build-depends:      base,
+                        programming5
+    default-language:   Haskell2010
+    ghc-options:        -threaded 
+                        -rtsopts 
+                        -with-rtsopts=-N
 
 Test-Suite test
     import:             warnings
-    hs-source-dirs:
-        test
+    hs-source-dirs:     test
     main-is:            Test.hs
-    build-depends:
-        programming5,
-        base ^>=4.17.1.0,
-        tasty,
-        tasty-hunit
-    default-language:   GHC2021
+    build-depends:      base,
+                        programming5,
+                        QuickCheck
+    default-language:   Haskell2010
     type:               exitcode-stdio-1.0
-    ghc-options:        -Wall
+    ghc-options:        -threaded 
+                        -rtsopts 
+                        -with-rtsopts=-N
 
+source-repository head
+  type:                 git
+  location:             https://github.com/MorveN11/Programming5

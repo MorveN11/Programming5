@@ -29,4 +29,4 @@ sumDigits [x] = x
 sumDigits (x : xs) = sumArray (toDigits x) + sumDigits xs
 
 validate :: Either Int [Int] -> Bool
-validate n = mod (sumDigits (doubleEveryOther n)) 10 == 0
+validate n = sumDigits (doubleEveryOther n) `mod` 10 == 0

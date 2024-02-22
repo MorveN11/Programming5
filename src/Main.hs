@@ -4,13 +4,20 @@ import Hanoi (hanoi, printMoves)
 
 main :: IO ()
 main = do
-  putStrLn "Welcome to Hanoi Tower Algorithm, Lets see some Examples!\n"
-  putStrLn "hanoi 1 \"src\" \"tmp\" \"dst\""
-  putStrLn (printMoves (hanoi 1 "src" "tmp" "dst"))
-  putStrLn "hanoi 2 \"src\" \"tmp\" \"dst\""
-  putStrLn (printMoves (hanoi 2 "src" "tmp" "dst"))
-  putStrLn "hanoi 3 \"src\" \"tmp\" \"dst\""
-  putStrLn (printMoves (hanoi 3 "src" "tmp" "dst"))
-  putStrLn "hanoi 4 \"src\" \"tmp\" \"dst\""
-  putStrLn (printMoves (hanoi 4 "src" "tmp" "dst"))
-  putStrLn "\nFor more examples, please run the tests with 'cabal test' command."
+  putStrLn "\n----------------------------------------"
+  putStrLn "Welcome to Hanoi Tower Algorithm!\n"
+  putStrLn "Please enter the number of disks"
+  disks <- getLine
+  putStrLn "Please enter the source rod"
+  src <- getLine
+  putStrLn "Please enter the temporary rod"
+  tmp <- getLine
+  putStrLn "Please enter the destination rod"
+  dst <- getLine
+  putStrLn ""
+  if null disks
+    then error "Please enter the number of disks and the names of the rods"
+    else do
+      putStrLn (printMoves (hanoi (read disks) src tmp dst))
+      putStrLn "----------------------------------------"
+      putStrLn "For see the tests, please run the tests with 'cabal test' command."
