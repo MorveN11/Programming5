@@ -27,6 +27,7 @@ library
                         CreditCardValidator
                         ManuelMoralesCreditCardValidatorClass
                         QuickSort
+                        Library
 
 executable programming5
     import:             common-configurations,
