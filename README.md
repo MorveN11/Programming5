@@ -25,7 +25,7 @@
 
 To build this project you need to run the following command:
 
-``bash
+```bash
 stack clean && stack build
 ```
 
