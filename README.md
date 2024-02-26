@@ -5,9 +5,10 @@
 
 ## Assignments
 
-- **Assignment 1**: Quick Sort
-- **Assignment 2**: Credit Card Validator
-- **Assignment 3**: Hanoi
+- **Assignment 1**: Quick Sort /library/QuickSort.hs
+- **Assignment 2**: Credit Card Validator /library/CreditCardValidator.hs /library/ManuelMoralesCreditCardValidatorClass.hs
+- **Assignment 3**: Hanoi /library/Hanoi.hs /src/Main.hs /test/Test.hs
+- **Assignment 4**: Split /library/26-02-2024/Split.hs
 
 ## Versions
 
