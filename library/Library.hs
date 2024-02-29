@@ -1,6 +1,3 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-
-{-# HLINT ignore "Use map" #-}
 module Library
   ( lengthArrayGuards,
     lengthArrayIfThenElse,
@@ -10,9 +7,6 @@ module Library
     insertAt,
   )
 where
-
--- len :: Ord a => [a] -> Int
--- len (_ : xs) = 1 + len xs
 
 lengthArrayFoldr :: [Int] -> Int
 lengthArrayFoldr = foldr (\_ y -> 1 + y) 0
