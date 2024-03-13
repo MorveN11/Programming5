@@ -1,14 +1,19 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 
 {-# HLINT ignore "Use foldr" #-}
+{-# HLINT ignore "Avoid lambda using `infix`" #-}
+
 module ManuelMoralesTest
   ( average,
     stringToListStudents,
     stringToListStudentNames,
     ageLessThan,
     ageBetweenThan,
+    listOfStudents,
   )
 where
+
+import Data.List.Split (splitOn)
 
 type Student = (String, Int)
 
@@ -55,6 +60,14 @@ stringToListStudents xs = (name, age) : stringToListStudents next
     rest = dropWhile isSpace (dropWhile isNotSpace xs)
     age = read (takeWhile isNotComma rest)
     next = dropWhile isSpace (dropWhile isNotSpace rest)
+
+listOfStudents :: String -> [(String, Int)]
+listOfStudents "" = []
+listOfStudents s = tuples
+  where
+    firstList = splitOn s ","
+    secondList = map (\x -> splitOn x " ") firstList
+    tuples = map (\[[x], [y]] -> ([x], read [y])) secondList
 
 ageLessThan :: [Student] -> Int -> [Student]
 ageLessThan [] _ = []
