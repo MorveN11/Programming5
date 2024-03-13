@@ -29,6 +29,7 @@ library
                         QuickSort
                         Library
                         ManuelMoralesTest
+                        BST
     build-depends:      split
 
 executable programming5
@@ -42,7 +43,7 @@ Test-Suite test
                         execute-test-configurations
     type:               exitcode-stdio-1.0
     hs-source-dirs:     test
-    main-is:            Test.hs
+    main-is:            BstTest.hs
     build-depends:      QuickCheck
 
 source-repository head
