@@ -11,7 +11,9 @@ extra-doc-files:        README.md
 
 common common-configurations
     ghc-options:        -Wall
-    build-depends:      base
+    build-depends:      base,
+                        containers,
+                        split
     default-language:   Haskell2010
 
 common execute-test-configurations
@@ -30,7 +32,7 @@ library
                         Library
                         ManuelMoralesTest
                         BST
-    build-depends:      split
+                        TestManuelMorales
 
 executable programming5
     import:             common-configurations,
@@ -43,7 +45,7 @@ Test-Suite test
                         execute-test-configurations
     type:               exitcode-stdio-1.0
     hs-source-dirs:     test
-    main-is:            BstTest.hs
+    main-is:            TestManuelMoralesTest.hs
     build-depends:      QuickCheck
 
 source-repository head
