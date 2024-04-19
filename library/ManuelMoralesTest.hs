@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-
 {-# HLINT ignore "Use foldr" #-}
 {-# HLINT ignore "Avoid lambda using `infix`" #-}
+{-# LANGUAGE LambdaCase #-}
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 
 module ManuelMoralesTest
   ( average,
@@ -67,7 +67,7 @@ listOfStudents s = tuples
   where
     firstList = splitOn s ","
     secondList = map (\x -> splitOn x " ") firstList
-    tuples = map (\[[x], [y]] -> ([x], read [y])) secondList
+    tuples = map (\case [[x], [y]] -> ([x], read [y]); _ -> error "Invalid input") secondList
 
 ageLessThan :: [Student] -> Int -> [Student]
 ageLessThan [] _ = []

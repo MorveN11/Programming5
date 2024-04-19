@@ -1,10 +1,7 @@
-{-# LANGUAGE GADTs #-}
-
 module Main (main) where
 
-data MyList a = Nil | Cons a (MyList a)
-  deriving (Show)
+import Functors (inc')
 
 main :: IO ()
 main = do
-  putStrLn "\n----------------------------------------"
+  print (inc' [Just 1, Nothing, Just 2])
