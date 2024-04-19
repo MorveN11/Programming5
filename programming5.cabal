@@ -28,6 +28,7 @@ library
   exposed-modules:
     BST
     CreditCardValidator
+    Exercises
     Functors
     Hanoi
     Identity
